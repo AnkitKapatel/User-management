@@ -1,0 +1,26 @@
+<div class="wrapper" fxLayout="column" fxLayoutAlign="center center">
+    <div *ngIf="isLoading">
+      <app-loader></app-loader>
+    </div>
+    <div class="container">
+        <div class="row">
+            <form *ngIf="!isLoading" [formGroup]="loginFom">
+                <h3>Log In</h3>
+                <div class="mb-3 row">
+                    <label for="email" class="form-label">Email<span *ngIf="email?.required">*</span></label>
+                    <input type="email" #email class="form-control col" id="email" formControlName = "email" required="">
+                    <div class="col"></div>
+                    <span class="error-msg" *ngIf="loginFom.controls['email'].touched && loginFom.controls['email'].invalid"> Please enter valid email.</span>
+                </div>
+                <div class="mb-3 row">
+                    <label for="firstname" class="form-label">Password<span *ngIf="password?.required">*</span></label>
+                    <input type="password" #password class="form-control col" id="password" formControlName = "password" required>  
+                    <div class="col"></div>
+                    <span class="error-msg" *ngIf="loginFom.controls['password'].touched && loginFom.controls['password'].invalid"> Please enter valid password.</span>
+                  </div>
+                  <button type= "button" class="btn btn-success"  (click)="onLogin()" [disabled]="!loginFom.valid">Log In</button>
+            </form>
+        </div>
+    </div>
+
+  </div>

@@ -1,0 +1,12 @@
+<nav class="navbar navbar-light bg-light" style="background-color: #f2f2f2 !important;">
+  <div class="container-fluid">
+    <h3><a class="navbar-brand ">User Management</a></h3>
+  </div>
+</nav>
+<div *ngIf="!(isAuthenticated$ | async); else layout">
+  <router-outlet></router-outlet>
+</div>
+<ng-template #layout>
+  <app-sidenav></app-sidenav>
+</ng-template>
+
