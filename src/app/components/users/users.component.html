@@ -88,7 +88,7 @@
                         <label for="avatar" class="form-label">upload avatar</label><span
                             *ngIf="Image?.required">*</span>
                         <input #Image class="form-control" type="file" id="avatar" formControlName="avatar"
-                            (change)="handleFileInput($event)">
+                            (change)="handleFileInput($event)" required>
                         <span class="error-msg"
                             *ngIf="userForm.controls['avatar'].touched && userForm.controls['avatar'].invalid"> Please
                             upload image.</span>
